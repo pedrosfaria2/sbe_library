@@ -75,7 +75,6 @@ tests/.vscode/
 *.whl
 
 # Version control and metadata files
-*.egg-info/
 .mr.developer.cfg
 .project
 .pydevproject

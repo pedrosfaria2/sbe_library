@@ -2,13 +2,13 @@ from scapy.all import rdpcap
 
 
 class PCAPReader:
-    def __init__(self, pcap_file):
-        self.pcap_file = pcap_file
+    def __init__(self, file_path):
+        self.file_path = file_path
 
     def get_sbe_messages(self):
-        packets = rdpcap(self.pcap_file)
+        packets = rdpcap(self.file_path)
         sbe_messages = []
         for packet in packets:
-            if packet.haslayer('Raw'):
-                sbe_messages.append(bytes(packet['Raw'].load))
+            if hasattr(packet, 'load'):
+                sbe_messages.append(packet.load)
         return sbe_messages
